@@ -5,6 +5,24 @@
 
 #include "../src/prime.hpp"
 
-TEST_CASE( "#prime" ) {
-    REQUIRE( prime() == "You can delete this function and replace it with your own!" );
+Factorizer factorizer;
+
+TEST_CASE( "Less than 1" ) {
+    std::vector<int>expected = {};
+    REQUIRE( factorizer.primeFactors(0) == expected );
+}
+
+TEST_CASE( "Equal to 1" ) {
+    std::vector<int>expected = {};
+    REQUIRE( factorizer.primeFactors(1) == expected );
+}
+
+TEST_CASE( "Odd number" ) {
+    std::vector<int>expected = {3,3};
+    REQUIRE( factorizer.primeFactors(9) == expected );
+}
+
+TEST_CASE( "Even number" ) {
+    std::vector<int>expected = {2,5};
+    REQUIRE( factorizer.primeFactors(10) == expected );
 }
